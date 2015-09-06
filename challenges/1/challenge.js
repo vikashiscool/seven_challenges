@@ -14,4 +14,5 @@ $(document).ready(function(){
 
   // var item = ...
 
+$('#target').append(response.data[0].message);
 })
