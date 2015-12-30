@@ -41,6 +41,9 @@ app.post("/api/tweets", function createTweet(req, res){
 
   if (req.xhr ) {
     // it was an AJAX Request, so we need to respond with
+    res.send({
+      data: [newTweet]
+    });
     // a JSON object containing the newly created tweet
     // or HTTP Status Code 401, "not authorized"
   } else {
@@ -55,6 +58,7 @@ app.post("/api/tweets", function createTweet(req, res){
  */
 
 app.use("/challenges", express.static("challenges"));
+
 app.get("/nice-work", function(req, res){
   res.send("Nice Work!")
 })
