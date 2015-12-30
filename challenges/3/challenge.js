@@ -12,9 +12,11 @@ $(document).ready(function(){
    * and render the response data to the page
    * using the `render` function, above?
   */
-
-  // AJAX request to `/api/tweets`
-    // render(response.data);
-  //
+   // AJAX request to `/api/tweets`
+  //FORMAT: $.get("route", function(res){ render(res.data);})
+  $.get("/api/tweets", function(response){
+    render(response.data);
+  });
+ 
 
 })

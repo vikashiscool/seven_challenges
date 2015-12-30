@@ -14,6 +14,9 @@ $(document).ready(function(){
    * (with no modifications)?
   */
 
+  $.get("/api/tweets/1", function(response){
+    render(response.data);
+  })
   // AJAX request to `/api/tweets/1`
     // render(response.data);
   //
