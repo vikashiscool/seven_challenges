@@ -43,9 +43,10 @@ app.post("/api/tweets", function createTweet(req, res){
   if (logged_in !== "true") {
     return res.sendStatus(401);
   }
+
   var newTweet = req.body;
-  
-  if (req.xhr ) {
+
+  if ( req.xhr ) {
     // it was an AJAX Request, so we need to respond with
     res.send({
       data: [newTweet]

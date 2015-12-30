@@ -14,25 +14,24 @@ $(document).ready(function(){
    * NOTE: When the user is logged in, the cookie is: `logged_in=true`;
   */
 
-  $.post("/api/tweets")
-   .success(function handleSuccess(){
-      // render response data
-   })
-   .error(function handleError(){
-      // alert the user that they need to login (401, "not authorized")
-   })
+  $("form").on("submit", function(e){
+    e.preventDefault();
+
+    var $form = $(this);
+    var data = $form.serialize();
+
+    $.post("/api/tweets", data)
+     .success(function handleSuccess(response){
+        render(response.data);
+     })
+     .error(function handleError(response, status){
+        alert(status, "Not authorized");
+        console.log(status, "Not authorized")
+        // alert the user that they need to login (401, "not authorized")
+     })
+  })
 
 })
-
-
-
-
-
-
-
-
-
-
 
 
 
